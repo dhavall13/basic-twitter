@@ -1,7 +1,10 @@
 from django.conf import settings
 from rest_framework import serializers
-
 from .models import Tweet
+
+MAX_TWEET_LENGTH = settings.MAX_TWEET_LENGTH
+
+
 
 class TweetSerializer(serializers.ModelSerializer):
     class Meta:

@@ -16,7 +16,8 @@ class Tweet(models.Model):
    # TODO : 
    # null=True, on_delete=(set to null) => (this tweets is deleted) in user
     #id = models.AutoField(primary_key=True)
-     
+    
+    parent = models.ForeignKey("self", null=True,on_delete=models.SET_NULL)
     user = models.ForeignKey(User, on_delete=models.CASCADE ) # many users can tweet 
     likes = models.ManyToManyField(User, related_name='tweet_user', blank=True, through=TweetLike )
     content = models.TextField(blank=True, null=True)
@@ -27,10 +28,20 @@ class Tweet(models.Model):
     #     return self.content
     class Meta:
         ordering = ['-id']
+
+    @property
+    def is_retweet(self):
+        return self.parent != None
+
+    
     
     def serialize(self):
+        '''
+        deleted old method
+        '''
         return {
             "id": self.id,
             "content":self.content,
             "likes": random.randint(0, 100)
         }
+        

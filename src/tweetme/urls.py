@@ -1,16 +1,5 @@
-"""tweetme URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 
 from tweets.views import (
     home_view, 
@@ -27,6 +16,5 @@ urlpatterns = [
     path('create-tweet', tweet_create_view),
     path('tweets', tweet_list_view),
     path('tweets/<int:tweet_id>', tweet_detail_view),
-    path('api/tweets/action', tweet_action_view),
-    path('api/tweets/<int:tweet_id>/delete', tweet_delete_view),
+    path('api/tweets/', include('tweets.urls'))
 ]

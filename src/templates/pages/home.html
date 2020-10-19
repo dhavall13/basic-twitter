@@ -122,7 +122,7 @@ function loadTweets(tweetsElement) {
     const xhr = new XMLHttpRequest()
     const method = 'GET' // "POST"
     const url = "/tweets"
-    const responseType = "json"
+    const responseType = "json" 
     xhr.responseType = responseType
     xhr.open(method, url)
     xhr.onload = function() {

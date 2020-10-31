@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"C:\Users\DHAVAL -------NAMAN\Documents\tweetme-master"
+$VIRTUAL_ENV = r"C:\Users\dhava\Documents\basic-twitter"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]
